@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './modules/shared/shared.module'
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { SharedModule } from './modules/shared/shared.module'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-   
+    SharedModule
   ],
 
   providers: [],
