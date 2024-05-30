@@ -4,28 +4,36 @@
         <i class="material-icons" style="font-size: 200px;">person</i>
         <!--nombre-->
         <mat-form-field appearance="fill">
-            <mat-label>INgrese el nombre de usuario</mat-label>
-            <input matInput placeholder="Ej:Pepito" required>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>    
+            <mat-label>Ingrese el nombre de usuario</mat-label>
+             <!--la directiva ng model nos conecta de forma bidireccional como un formulario-->
+            <input [(ngModel)]="usuarios.nombre" matInput placeholder="Ej:Pepito" required>   
         </mat-form-field>
 
         <!--apellido-->
         <mat-form-field appearance="fill">
             <mat-label>Ingrese el apellido de usuario</mat-label>
-            <input matInput placeholder="Placeholder" required="">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
+            <input matInput placeholder="Placeholder" required=""> 
+        </mat-form-field>
 
         <!--mail-->
           <mat-form-field appearance="fill">
             <mat-label>Ingrese el mail de usuario</mat-label>
-            <input matInput placeholder="Placeholder" required="">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> 
+            <input [(ngModel)]="usuarios.email" matInput placeholder="Placeholder" required="">
           </mat-form-field>
+        
+        <!--Rol del Usuario-->
+          <mat-form-field>
+            <mat-label>Seleccione un Rol</mat-label>
+            <mat-select [(ngModel)]="usuarios.rol" required>
+              <mat-option value="adm">Administrador</mat-option>
+              <mat-option value="vis">Visitante</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
         <!--Contraseña-->
           <mat-form-field>
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
+            <mat-label>Ingrese su contraseña</mat-label>
+            <input [(ngModel)]="usuarios.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
             <button class="boton" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>

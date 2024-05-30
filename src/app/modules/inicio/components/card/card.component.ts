@@ -15,27 +15,27 @@ export class CardComponent {
   this.info = [
      {
       id: "",
-      nombre: "perro",
-      raza:"Chiquito",
+      nombre: "Vans",
+      raza:"knu skool",
       edad: 0,
-      imagen:"https://www.aon.es/personales/seguro-perro-gato/wp-content/uploads/sites/2/2021/04/bichon-maltes.jpg",
-      alt:"Perro Chiquito",
+      imagen:"https://www.newyorkstore.com.py/files/pro_22187_e.jpg",
+      alt:"Vans Knu Skool classic black",
      },
      {
       id: "",
-      nombre: "perro",
-      raza:"Marron y Blanco",
+      nombre: "Adidas",
+      raza:"Ozmillen",
       edad: 0,
-      imagen:"https://thumbs.dreamstime.com/z/perro-tonto-del-ordenador-37139253.jpg",
-      alt:"perro en la compu",
+      imagen:"https://dynamic.zacdn.com/_3wqD9FzYhKMylyuENmqXsPMlC0=/filters:quality(70):format(webp)/https://static-sg.zacdn.com/p/adidas-4984-4197053-2.jpg",
+      alt:"Adidas Ozmillen color Beige",
      },
      {
       id: "",
-      nombre: "gato",
-      raza:"naranja",
+      nombre: "Puma",
+      raza:"Suede",
       edad: 0,
-      imagen:"https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2020/12/22/5fe1e18e7de57.jpeg",
-      alt:"gato naranja re pancho en la compu",
+      imagen:"https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa5ba7529/products/PU389462-01/PU389462-01-6.JPG",
+      alt:"Puma Suede Archive Remastered",
      }
     ]
   }

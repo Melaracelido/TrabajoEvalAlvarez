@@ -8,6 +8,10 @@ import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.compo
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
+// COMPONENTES DE ANGULAR
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +19,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     InicioSesionComponent
   ],
   imports: [
+    
     CommonModule,
     AutentificacionRoutingModule,
+    //material
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule,
+    //anuglar
+    FormsModule,
   ],
   exports: [
     RegistroComponent,
@@ -27,6 +36,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule,
   ]
 })
 export class AutentificacionModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario'
 
 @Component({
   selector: 'app-registro',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class RegistroComponent {
   hide = true;
+
+  //
+  usuarios: Usuario = {
+    uid: '',
+    nombre: '',
+    apellido: '',
+    email: '',
+    rol: '',
+    password: '',
+  }
 }
