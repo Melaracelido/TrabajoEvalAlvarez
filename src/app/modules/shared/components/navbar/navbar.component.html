@@ -7,7 +7,7 @@
     <button mat-button routerLink="/inicio">Inicio</button>
 
   
-    <button mat-button [matMenuTriggerFor]="producto">Menu</button>
+    <button mat-icon-button [matMenuTriggerFor]="producto">Menu</button>
     <mat-menu #producto="matMenu">
         <button mat-menu-item routerLink="producto">General</button>
         <button mat-menu-item routerLink="nike">Nike</button>
