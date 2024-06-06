@@ -5,7 +5,6 @@
     <span>My App</span>
     
     <button mat-button routerLink="/inicio">Inicio</button>
-
   
     <button mat-icon-button [matMenuTriggerFor]="producto">Menu</button>
     <mat-menu #producto="matMenu">
@@ -15,18 +14,14 @@
         <button mat-menu-item routerLink="vans">Vans</button>
     </mat-menu>
 
-
     <span class="example-spacer"></span>
 
-    
     <button mat-button [matMenuTriggerFor]="usuario"><mat-icon>person</mat-icon></button>
     <mat-menu #usuario
     ="matMenu">
         <button mat-menu-item routerLink="/registro">Registrarse</button>
         <button mat-menu-item routerLink="/iniciosesion">Iniciar sesion</button>
     </mat-menu>
-
-
 
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>favorite</mat-icon>

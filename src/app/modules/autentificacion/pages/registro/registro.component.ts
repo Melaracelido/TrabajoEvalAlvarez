@@ -41,4 +41,14 @@ Registrar(){
   console.log(credenciales);
   console.log(this.coleccionusuarios)
 }
+LimpiarInputs(){
+  const inputs = {
+    uid: this.usuarios.uid='',
+    nombre: this.usuarios.uid='',
+    apellido: this.usuarios.apellido='',
+    email: this.usuarios.email='',
+    rol: this.usuarios.rol='',
+    password: this.usuarios.password='',
+  }
+}
 }
