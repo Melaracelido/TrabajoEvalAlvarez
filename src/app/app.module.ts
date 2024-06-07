@@ -8,6 +8,13 @@ import { CarruselComponent } from './carrusel/carrusel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './modules/shared/shared.module';
 
+//VINCULACIONES/IMPORTACIONES CON FIREBASE
+import { enviroment } from 'src/enviroments/enviroments';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
+import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +25,14 @@ import { SharedModule } from './modules/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    //componentes glbales
+    SharedModule,
+    //inicia firebase en nuestro proyecto
+    AngularFireModule.initializeApp(enviroment.firebaseConfig),
+    //autentificacion
+    AngularFireAuthModule,
+    //storeage -> BD de imagenes
+    AngularFireStorageModule,
   ],
 
   providers: [],
