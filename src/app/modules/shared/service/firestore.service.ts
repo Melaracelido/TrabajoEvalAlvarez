@@ -14,4 +14,22 @@ export class FirestoreService {
   constructor(private database: AngularFirestore) {
     this.usuariosCollection = this.database.collection<Usuario>('usuario');
    }
+
+  agrgarUsuario(usuario: Usuario, id: string){
+    return new Promise(async(resolve, reject)=> {
+    try{
+      usuario.uid = id;
+
+      //constante resultado = coleccion de usuarios, encvia como documento el uid y setea
+      //la info qie inmgresemos en el registro
+
+      const resultado = await this.usuariosCollection.doc(id).set(usuario);
+      resolve(resultado)
+      //bloque catch encapsula una falla y la vuelve un error
+    }catch(error){
+      reject(error);
+    }
+
+  })
+  }
 }

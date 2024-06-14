@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from '../../service/auth.service';
 // Servicio de rutas que otorga
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/modules/shared/service/firestore.service';
 
 
 @Component({
@@ -29,12 +30,13 @@ coleccionusuarios: Usuario[] = [];
 
 //referrenciams los servicios
 constructor(
-  public servicioAuth: AuthService,
-  public servicioRutas: Router,
+  public servicioAuth: AuthService, // metodos de navegacion
+  public servicioRutas: Router, //metodo d navegacion
+  public servicioFirestore: FirestoreService, //vincula uid con la coleccion
 ){}
 
 //registro
-Registrar(){
+async Registrar(){
   /*const credenciales = {
     uid: this.usuarios.uid,
     nombre: this.usuarios.uid,
@@ -63,8 +65,25 @@ Registrar(){
     // metodo navigate = permite dirigirnos a diferentes vistas
     this.servicioRutas.navigate(['/Inicio'])
    })
+
+
+   const uid= await this.servicioAuth.obtenerUid();
+   this.usuarios.uid = uid;
   }
+   
   //enviamos los nuevos registros 
+
+  async guardarUsuario (){
+    this.servicioFirestore.agrgarUsuario (this.usuarios, this.usuarios.uid)
+    .then(res=>{
+      console.log(this.usuarios);
+    })
+    .catch(err=> {
+      console.log('Error =>', err)
+    })
+  }
+
+
 
   LimpiarInputs(){
   const inputs = {
