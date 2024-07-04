@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from '../../service/auth.service';
 import { FirestoreService } from 'src/app/modules/shared/service/firestore.service';
 import { Router } from '@angular/router';
+import * as CryptoJs from 'crypto-js';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -21,7 +22,7 @@ export class InicioSesionComponent {
   usuarioIngresado: Usuario = {
     uid: '',
     nombre: '',
-   apellido: '',
+    apellido: '',
     email: '',
     rol: '',
     password: '',
@@ -43,25 +44,58 @@ export class InicioSesionComponent {
       email: this.usuarioIngresado.email,
       password: this.usuarioIngresado.password,
     }
+
+    try {
+      //obtenemos el usuario desde la base de datos -> cloud firestore
+      const usuarioBD = await this.servicioAuth.ObtenerUsuario(credenciales.email);
+      //!: si es diferente
+      //.empty -> metodo de fire base para marcar si algo es vacio
+      if (!usuarioBD || usuarioBD.empty) {
+        alert('el correo no esta registrado.');
+        this.LimpiarInputs();
+        return
+      }
+      /*Primer documento (registro) en la oleccion de usuarios que se obtiene desde la consulta */
+      const usuarioDoc = usuarioBD.docs[0];
+
+      /*
+      *extrae los datos de los usuarios
+      
+      */
+      const usuarioData = usuarioDoc.data() as Usuario;
+
+      const hashedPassword = CryptoJs.SHA256(credenciales.password).toString();
+      if (hashedPassword !== usuarioData.password) {
+        alert("Contraseña Incorrecta");
+
+        this.usuarioIngresado.password = '';
+        return;
+      }
+
       const res = await this.servicioAuth.IniciarSesion(credenciales.email, credenciales.password)
         .then(res => {
           alert('¡Se ha logueado con exito!');
           this.servicioRutas.navigate(['/Inicio'])
         })
-    .catch(err =>{
-      alert('No se pudo iniciar sesión')
+        .catch(err => {
+          alert('No se pudo iniciar sesión' + err)
 
+          this.LimpiarInputs();
+        })
+    } catch (error) {
       this.LimpiarInputs();
-    })
-   
+    }
+
+
+
   }
 
-  LimpiarInputs(){
+  LimpiarInputs() {
     const inputs = {
-      email: this.usuarioIngresado.email='',
-      password: this.usuarioIngresado.password='',
+      email: this.usuarioIngresado.email = '',
+      password: this.usuarioIngresado.password = '',
     }
-   }
+  }
 }
 
 /*public coleccionUsuarioLocal: Usuario[];
@@ -98,4 +132,3 @@ this.coleccionUsuarioLocal=[
     }
   }*/
 
-  

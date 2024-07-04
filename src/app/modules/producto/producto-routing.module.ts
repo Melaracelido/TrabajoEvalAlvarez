@@ -10,19 +10,19 @@ import { VansComponent } from './pages/vans/vans.component';
 const routes: Routes = [
 
   {
-   path:"producto",component:ProductoComponent
+    path: "producto", component: ProductoComponent
   },
   {
-    path:"nike",component:NikeComponent
-   },
-   {
-    path:"adidas",component:AdidasComponent
-   },
-   {
-    path:"vans",component:VansComponent
-   },
-   
-    
+    path: "nike", component: NikeComponent
+  },
+  {
+    path: "adidas", component: AdidasComponent
+  },
+  {
+    path: "vans", component: VansComponent
+  },
+
+
 ];
 
 @NgModule({
